@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.views.generic import ListView
+from .models import Product
 
 import hashlib
 
@@ -36,3 +38,21 @@ def home(request):
 def next_page(request):
     email = request.session.get('email', 'Няма въведен')
     return render(request, 'message_and_list/show_message.html', {'email': email})
+
+
+def home_view(request, *args, **kwargs):
+    context_manager = {
+        "title": "home_page",
+        'urls': [
+            'https://google.bg', 'https://abv.bg', 'https://facebook.com'
+        ]
+    }
+    return render(request, 'message_and_list/home.html', context_manager)
+
+
+def about_view(request, *args, **kwargs):
+    return render(request, 'message_and_list/about.html', {})
+
+
+class ProductList(ListView):
+    model = Product

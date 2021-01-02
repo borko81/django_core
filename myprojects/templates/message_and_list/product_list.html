@@ -1,0 +1,7 @@
+{% extends 'message_and_list/base.html' %}
+
+{% block content %}
+    {% for product in object_list %}
+        {{ product.title }} price: {{ product.price }}<br />
+    {% endfor %}
+{% endblock content %}

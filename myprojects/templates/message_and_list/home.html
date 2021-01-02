@@ -1,0 +1,8 @@
+{% extends 'message_and_list/base.html' %}
+
+
+{% block content %}
+    {% for url in urls %}
+        <a href="{{ url }}">{{ url }}</a>
+    {% endfor %}
+{% endblock content %}
