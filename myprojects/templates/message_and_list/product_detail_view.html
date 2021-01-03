@@ -1,0 +1,14 @@
+{% extends 'message_and_list/base.html' %}
+
+{% block content %}
+    <h3>details: <u>{{ context.name }}</u></h3>
+    
+    <table>
+    {% for key, val in context.items %}
+        <tr>
+            <td width="150px"><strong>{{ key }}</strong></td>
+            <td widt="30px">{{ val }}</td>
+        </tr>
+    {% endfor %}
+    <table>
+{% endblock content %}

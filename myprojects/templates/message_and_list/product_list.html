@@ -1,7 +1,11 @@
 {% extends 'message_and_list/base.html' %}
 
 {% block content %}
-    {% for product in object_list %}
-        {{ product.title }} price: {{ product.price }}<br />
-    {% endfor %}
+{% for product in object_list %}
+    {% if product.price > 11.50 %}
+        {{ product.title|upper }} price: <b>{{ product.price }}</b><br />
+    {% else %}
+        {{ product.title|upper }} price: {{ product.price }}<br />
+    {% endif %}
+{% endfor %}
 {% endblock content %}
