@@ -3,9 +3,9 @@ from django.shortcuts import render
 from .models import Product
 
 
-def product_detail_view(request):
+def product_detail_view(request, pk):
     '''Show only one product'''
-    obj = Product.objects.get(id=1)
+    obj = Product.objects.get(pk=pk)
     context = {
         'name': obj.name,
         'name_lat': obj.name_lat,

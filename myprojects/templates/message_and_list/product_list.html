@@ -3,9 +3,9 @@
 {% block content %}
 {% for product in object_list %}
     {% if product.price > 11.50 %}
-        {{ product.title|upper }} price: <b>{{ product.price }}</b><br />
+        {{ product.name|upper }} price: <b>{{ product.price }} <a href="{% url 'product_detail' product.pk %}">Detail</a> </b><br />
     {% else %}
-        {{ product.title|upper }} price: {{ product.price }}<br />
+        {{ product.name|upper }} price: {{ product.price }} <a href="{% url 'product_detail' product.pk %}">Detail</a> </b><br />
     {% endif %}
 {% endfor %}
 {% endblock content %}
